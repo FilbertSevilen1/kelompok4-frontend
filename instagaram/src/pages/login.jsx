@@ -64,7 +64,7 @@ function Login () {
             setLoading(false);
             toast({
                 title: 'Login Success!',
-                description: "Please be kind and polite to others",
+                description: "",
                 status: 'success',
                 duration: 5000,
                 isClosable: true,
@@ -87,9 +87,9 @@ function Login () {
     return (
         <div className='loginContainer'>
             <div className='loginForm'>
-                <h1 className='loginHeader'>Login</h1>
+                <h1 className='loginHeader'>Admin Login</h1>
                 <div className='loginFormInput'>
-                    <h3 className='loginLabel'>email</h3>
+                    <h3 className='loginLabel'>Email</h3>
                     <input type="text" className='Input' ref={email}></input>
                 </div>
                 <div className='loginFormInput'>

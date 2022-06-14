@@ -1,10 +1,21 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 function Landing(){
     const global = useSelector((state)=>state)
     const admin = global.admin
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const onLogout = () =>{
+        dispatch ({type : 'LOGOUT'})
+        navigate('/admin');
+    }
+
     return (
         <div>
-            {admin.username}
+            Temporary Landing Page<br></br>
+            Username : {admin.username}<br></br>
+            <button onClick={onLogout}>Logout</button>
         </div>
     )
 }

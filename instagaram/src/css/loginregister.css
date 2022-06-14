@@ -22,10 +22,10 @@ div{
     margin-bottom: 10px;
 }
 .loginForm{
-    width:70%;
+    width:40%;
     height:650px;
-    background-color: rgba(0,0,0,0.85);
-    color:white;
+    background-color: rgba(230, 230, 230, 0.85);
+    color:black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,17 +46,19 @@ div{
     height:45px;
     display: flex;
     flex-direction: column;
-    margin-top:0;
+    margin-top:-25px;
     margin-bottom: 15px;
 }
 .loginFormInputSmallBottom{
     width:450px;
     height:50px;
+    color:red;
+    font-size: 22px;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top:0;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 .Input{
     width:90%;
@@ -80,10 +82,10 @@ div{
     cursor: pointer;
     width:175px;
     height:50px;
-    color:black;
-    background-color: white;
-    border: 5px solid rgba(0, 0, 0, 0);
-    border-radius: 25px;
+    color:white;
+    background-color: black;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 15px;
     font-size:20px;
     margin:5px;
     transition: 250ms all ease;
