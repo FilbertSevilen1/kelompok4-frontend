@@ -95,10 +95,10 @@ function Login () {
                 <div className='loginFormInput'>
                     <h3 className='loginLabel'>Password</h3>
                     <input type={showPassword?"text":"password"} className='Input' ref={password}></input>
-                    <div><input type="checkbox" id="showPassword" onClick={changeShowState} style={{cursor:"pointer"}}></input><label htmlFor='showPassword' style={{cursor:"pointer"}}>Show Password</label></div>
+                    <div className='checkboxForm'><input class="checkboxMargin" type="checkbox" id="showPassword" onClick={changeShowState} style={{cursor:"pointer"}}></input><label htmlFor='showPassword' style={{cursor:"pointer"}}>Show Password</label></div>
                 </div>
                 <div className='loginFormInputSmall'>
-                    <div><input type="checkbox" id="keepLogged" onClick={changeKeepLogged} style={{cursor:"pointer"}}></input><label htmlFor='keepLogged' style={{cursor:"pointer"}}>Keep me Logged in</label></div>
+                    <div><input class="checkboxMargin" type="checkbox" id="keepLogged" onClick={changeKeepLogged} style={{cursor:"pointer"}}></input><label htmlFor='keepLogged' style={{cursor:"pointer"}}>Keep me Logged in</label></div>
                 </div>
                 <div className='loginFormInputSmallBottom'>
                    {errorMessage}
