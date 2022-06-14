@@ -10,10 +10,10 @@ function Login () {
     const user = useSelector((state) => state)
     const navigate = useNavigate();
 
-    if(user.username){
+    if(user.email){
         navigate('/')
     }
-    const username = useRef("");
+    const email = useRef("");
     const password = useRef("");
 
     const [loading, setLoading] = useState(false);
@@ -27,15 +27,15 @@ function Login () {
     const onSubmitButton = () =>{
         setLoading(true);
 
-        if(!username.current.value){
+        if(!email.current.value){
             setLoading(false);
             toast({
-                title: 'Username cannot be empty',
+                title: 'email cannot be empty',
                 status: 'error',
                 duration: 3000,
                 isClosable: true,
               })
-            return setErrorMessage("Username cannot be empty")
+            return setErrorMessage("email cannot be empty")
         }
         if(!password.current.value){
             setLoading(false);
@@ -49,18 +49,18 @@ function Login () {
         }
 
         const data = {
-            username : username.current.value,
+            email : email.current.value,
             password : password.current.value
         }
         console.log(data)
-        Axios.post("http://localhost:5000/api/auth/login", data)
+        Axios.post("http://localhost:5000/api/admin/login", data)
         .then((respond)=>{
             console.log(respond.data)
             setErrorMessage("Login Success")
             if(keepLogged){
-                localStorage.setItem("token",respond.data.uid)
+                // localStorage.setItem("token",respond.data.uid)
             }
-            dispatch({ type : 'LOGIN', payload : respond.data})
+            dispatch({ type : 'ADMIN_LOGIN', payload : respond.data})
             setLoading(false);
             toast({
                 title: 'Login Success!',
@@ -72,7 +72,7 @@ function Login () {
             navigate('/')
         })
         .catch((error)=>{
-            setErrorMessage(error.response.data)
+            setErrorMessage("Internal Service Error123")
             setLoading(false);
         })
     }
@@ -89,8 +89,8 @@ function Login () {
             <div className='loginForm'>
                 <h1 className='loginHeader'>Login</h1>
                 <div className='loginFormInput'>
-                    <h3 className='loginLabel'>Username</h3>
-                    <input type="text" className='Input' ref={username}></input>
+                    <h3 className='loginLabel'>email</h3>
+                    <input type="text" className='Input' ref={email}></input>
                 </div>
                 <div className='loginFormInput'>
                     <h3 className='loginLabel'>Password</h3>

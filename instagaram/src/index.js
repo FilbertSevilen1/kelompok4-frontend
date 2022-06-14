@@ -15,8 +15,13 @@ const INITIAL_STATE = {
     }
   }
   function Reducer(state = INITIAL_STATE, action){
-    if(action.type == 'LOGIN'){
-
+    if(action.type == 'ADMIN_LOGIN'){
+      return {
+        admin : {
+          username : action.payload.username,
+          email : action.payload.email
+        }
+      }
     }
   
     else if(action.type == 'LOGOUT'){
