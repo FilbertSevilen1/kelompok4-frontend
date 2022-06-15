@@ -9,17 +9,19 @@ import App from './main'
 import { ChakraProvider } from '@chakra-ui/react'
 
 const INITIAL_STATE = {
-    admin : {
+    user : {
       username : "",
-      email : ""
+      email : "",
+      role : ""
     }
   }
   function Reducer(state = INITIAL_STATE, action){
     if(action.type == 'ADMIN_LOGIN'){
       return {
-        admin : {
+        user : {
           username : action.payload.username,
-          email : action.payload.email
+          email : action.payload.email,
+          role : "admin"
         }
       }
     }

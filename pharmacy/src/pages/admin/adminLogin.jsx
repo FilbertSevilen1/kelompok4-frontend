@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Axios from 'axios'
-import '../css/loginregister.css'
+import '../../css/admin/loginregister.css'
 import { useNavigate } from 'react-router-dom'
 import { Spinner, useToast } from '@chakra-ui/react'
 
-function Login () {
+function AdminLogin () {
     const toast = useToast();
     const user = useSelector((state) => state)
     const navigate = useNavigate();
@@ -72,7 +72,7 @@ function Login () {
             navigate('/')
         })
         .catch((error)=>{
-            setErrorMessage("Internal Service Error123")
+            setErrorMessage("Internal Service Error")
             setLoading(false);
         })
     }
@@ -115,7 +115,7 @@ function Login () {
                         </button>
                     }
                     
-                    <button className='submitButton' onClick={() => navigate('/forget')}>
+                    <button className='submitButton' onClick={() => navigate('/admin/forget-password')}>
                         Forget Password
                     </button>
                 </div>
@@ -124,4 +124,4 @@ function Login () {
         </div>
     )
 }
-export default Login;
+export default AdminLogin;
