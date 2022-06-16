@@ -39,21 +39,20 @@ function AdminForgetPassword (){
         })
     }
     return (
-        <div className="loginContainer">
-            <div className="loginFormSmall">
-                <h1 className="loginHeader">
-                    Forget Password
-                </h1>
-                <div className="loginFormInput">
-                    <h3 className="loginLabel">
-                        Email
-                    </h3>
-                    <input type = "text" className="Input" ref={email}></input>
+        <div className="main">
+            <div className="sub-main">
+                <div className="resetContainer">
+                    <h1 className="loginHeader">
+                        Forget Password
+                    </h1>
+                    <div className="inputForm">
+                        <input type = "text" className="nameSmallPadding" ref={email} placeholder="Email"></input>
+                    </div>
+                    {errorMessage}
+                    <button className="submitButton submitButtonReset" onClick={sendVerificationEmail}>
+                        Send Verification Email
+                    </button>
                 </div>
-                {errorMessage}
-                <button className="submitButton buttonLarge" onClick={sendVerificationEmail}>
-                    Send Verification Email
-                </button>
             </div>
         </div>
     )

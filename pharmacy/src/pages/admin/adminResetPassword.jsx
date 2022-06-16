@@ -65,29 +65,29 @@ function AdminResetPassword (){
     }
 
     return (
-        <div className="loginContainer">
-            <div className="loginForm">
-                <h1 className="loginHeader">
-                    Reset Password
-                </h1>
+        <div className="main">
+            <div className="sub-main">
+                <div className="resetContainer">
+                    <h1 className="loginHeader">
+                        Reset Password
+                    </h1>
 
-                <div className="loginFormInput">
-                    <h3 className="loginLabel">New Password</h3>
-                    <input type = "password" className="Input" ref = {password}>
+                    <div className="inputForm">
+                        <input type = "password" className="name" ref = {password} placeholder="Password">
 
-                    </input>
+                        </input>
 
+                    </div>
+                    <div className="inputForm">
+                        <input type = "password" className="name" ref = {repassword} placeholder="Re-Enter Password">
+
+                        </input>
+                    </div>
+
+                    <button className="submitButton submitButtonReset" onClick={changePassword}>
+                        Submit
+                    </button>
                 </div>
-                <div className="loginFormInput">
-                    <h3 className="loginLabel">Re-enter Password</h3>
-                    <input type = "password" className="Input" ref = {repassword}>
-
-                    </input>
-                </div>
-
-                <button className="submitButton" onClick={changePassword}>
-                    Submit
-                </button>
             </div>
         </div>
     )

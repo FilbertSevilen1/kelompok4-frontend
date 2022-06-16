@@ -5,6 +5,11 @@ import '../../css/admin/loginregister.css'
 import { useNavigate } from 'react-router-dom'
 import { Spinner, useToast } from '@chakra-ui/react'
 
+import profile from "../../images/a.png";
+import email from "../../images/email.jpeg";
+import pass from "../../images/pass.png";
+
+
 function AdminLogin () {
     const toast = useToast();
     const user = useSelector((state) => state)
@@ -13,7 +18,7 @@ function AdminLogin () {
     if(user.email){
         navigate('/')
     }
-    const email = useRef("");
+    const emailInput = useRef("");
     const password = useRef("");
 
     const [loading, setLoading] = useState(false);
@@ -27,7 +32,7 @@ function AdminLogin () {
     const onSubmitButton = () =>{
         setLoading(true);
 
-        if(!email.current.value){
+        if(!emailInput.current.value){
             setLoading(false);
             toast({
                 title: 'email cannot be empty',
@@ -49,7 +54,7 @@ function AdminLogin () {
         }
 
         const data = {
-            email : email.current.value,
+            email : emailInput.current.value,
             password : password.current.value
         }
         console.log(data)
@@ -72,8 +77,13 @@ function AdminLogin () {
             navigate('/')
         })
         .catch((error)=>{
-            setErrorMessage("Internal Service Error")
-            setLoading(false);
+            toast({
+                title: 'Login Error',
+                description: `${error.response.data}`,
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+              })
         })
     }
     const changeShowState = () =>{
@@ -85,43 +95,78 @@ function AdminLogin () {
         return setKeepLogged(true)
     }
     return (
-        <div className='loginContainer'>
-            <div className='loginForm'>
-                <h1 className='loginHeader'>Admin Login</h1>
-                <div className='loginFormInput'>
-                    <h3 className='loginLabel'>Email</h3>
-                    <input type="text" className='Input' ref={email}></input>
-                </div>
-                <div className='loginFormInput'>
-                    <h3 className='loginLabel'>Password</h3>
-                    <input type={showPassword?"text":"password"} className='Input' ref={password}></input>
-                    <div className='checkboxForm'><input class="checkboxMargin" type="checkbox" id="showPassword" onClick={changeShowState} style={{cursor:"pointer"}}></input><label htmlFor='showPassword' style={{cursor:"pointer"}}>Show Password</label></div>
-                </div>
-                <div className='loginFormInputSmall'>
-                    <div><input class="checkboxMargin" type="checkbox" id="keepLogged" onClick={changeKeepLogged} style={{cursor:"pointer"}}></input><label htmlFor='keepLogged' style={{cursor:"pointer"}}>Keep me Logged in</label></div>
-                </div>
-                <div className='loginFormInputSmallBottom'>
-                   {errorMessage}
-                </div>
-                <div>
-                    {
-                        loading?
-                        <button className='submitButton' onClick={onSubmitButton}>
-                            <Spinner color='blue.500' size='sm'/> Loading
-                        </button>
-                        :
-                        <button className='submitButton' onClick={onSubmitButton}>
-                            Login
-                        </button>
-                    }
+        // <div className='loginContainer'>
+        //     <div className='loginForm'>
+        //         <h1 className='loginHeader'>Admin Login</h1>
+        //         <div className='loginFormInput'>
+        //             <h3 className='loginLabel'>Email</h3>
+        //             <input type="text" className='Input' ref={email}></input>
+        //         </div>
+        //         <div className='loginFormInput'>
+        //             <h3 className='loginLabel'>Password</h3>
+        //             <input type={showPassword?"text":"password"} className='Input' ref={password}></input>
+        //             <div className='checkboxForm'><input class="checkboxMargin" type="checkbox" id="showPassword" onClick={changeShowState} style={{cursor:"pointer"}}></input><label htmlFor='showPassword' style={{cursor:"pointer"}}>Show Password</label></div>
+        //         </div>
+        //         <div className='loginFormInputSmall'>
+        //             <div><input class="checkboxMargin" type="checkbox" id="keepLogged" onClick={changeKeepLogged} style={{cursor:"pointer"}}></input><label htmlFor='keepLogged' style={{cursor:"pointer"}}>Keep me Logged in</label></div>
+        //         </div>
+        //         <div className='loginFormInputSmallBottom'>
+        //            {errorMessage}
+        //         </div>
+        //         <div>
+        //             {
+        //                 loading?
+        //                 <button className='submitButton' onClick={onSubmitButton}>
+        //                     <Spinner color='blue.500' size='sm'/> Loading
+        //                 </button>
+        //                 :
+        //                 <button className='submitButton' onClick={onSubmitButton}>
+        //                     Login
+        //                 </button>
+        //             }
                     
-                    <button className='submitButton' onClick={() => navigate('/admin/forget-password')}>
-                        Forget Password
-                    </button>
-                </div>
+        //             <button className='submitButton' onClick={() => navigate('/admin/forget-password')}>
+        //                 Forget Password
+        //             </button>
+        //         </div>
                 
+        //     </div>
+        // </div>
+    <div className="main">
+      <div className="sub-main">
+        <div>
+          <div className="imgs">
+            <div className="container-image">
+              <img src={profile} alt="profile" className="profile" />
             </div>
+          </div>
+          <div>
+            <h1>Admin Login Page</h1>
+            <div className='inputForm'>
+              <img src={email} alt="email" className="email" />
+              <input type="text" placeholder="email" className="name" ref={emailInput}/>
+            </div>
+            <div className="inputForm">
+              <img src={pass} alt="pass" className="email" />
+              <input type="password" placeholder="password" className="name" ref={password}/>
+            </div>
+            <div className="login-button">
+              <button className="submitButton" onClick={onSubmitButton}>Login</button>
+            </div>
+
+            <div className="link">
+                <button className='linkButton' onClick={() => navigate('/admin/forget-password')}>
+                    Forget Password 
+                </button> 
+                Or
+                <button className='linkButton' onClick={() => navigate('/admin/forget-password')}>
+                    Sign up
+                </button>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
     )
 }
 export default AdminLogin;
