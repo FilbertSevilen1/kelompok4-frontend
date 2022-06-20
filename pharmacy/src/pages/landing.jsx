@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 function Landing(){
     const global = useSelector((state)=>state)
-    const admin = global.admin
+    const user = global.user
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ function Landing(){
     return (
         <div>
             Temporary Landing Page<br></br>
-            Username : {admin.username}<br></br>
+            Username : {user.username}<br></br>
             <button onClick={onLogout}>Logout</button>
         </div>
     )

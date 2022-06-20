@@ -95,43 +95,6 @@ function AdminLogin () {
         return setKeepLogged(true)
     }
     return (
-        // <div className='loginContainer'>
-        //     <div className='loginForm'>
-        //         <h1 className='loginHeader'>Admin Login</h1>
-        //         <div className='loginFormInput'>
-        //             <h3 className='loginLabel'>Email</h3>
-        //             <input type="text" className='Input' ref={email}></input>
-        //         </div>
-        //         <div className='loginFormInput'>
-        //             <h3 className='loginLabel'>Password</h3>
-        //             <input type={showPassword?"text":"password"} className='Input' ref={password}></input>
-        //             <div className='checkboxForm'><input class="checkboxMargin" type="checkbox" id="showPassword" onClick={changeShowState} style={{cursor:"pointer"}}></input><label htmlFor='showPassword' style={{cursor:"pointer"}}>Show Password</label></div>
-        //         </div>
-        //         <div className='loginFormInputSmall'>
-        //             <div><input class="checkboxMargin" type="checkbox" id="keepLogged" onClick={changeKeepLogged} style={{cursor:"pointer"}}></input><label htmlFor='keepLogged' style={{cursor:"pointer"}}>Keep me Logged in</label></div>
-        //         </div>
-        //         <div className='loginFormInputSmallBottom'>
-        //            {errorMessage}
-        //         </div>
-        //         <div>
-        //             {
-        //                 loading?
-        //                 <button className='submitButton' onClick={onSubmitButton}>
-        //                     <Spinner color='blue.500' size='sm'/> Loading
-        //                 </button>
-        //                 :
-        //                 <button className='submitButton' onClick={onSubmitButton}>
-        //                     Login
-        //                 </button>
-        //             }
-                    
-        //             <button className='submitButton' onClick={() => navigate('/admin/forget-password')}>
-        //                 Forget Password
-        //             </button>
-        //         </div>
-                
-        //     </div>
-        // </div>
     <div className="main">
       <div className="sub-main">
         <div>
@@ -156,12 +119,8 @@ function AdminLogin () {
 
             <div className="link">
                 <button className='linkButton' onClick={() => navigate('/admin/forget-password')}>
-                    Forget Password 
+                    Forget Password
                 </button> 
-                Or
-                <button className='linkButton' onClick={() => navigate('/admin/forget-password')}>
-                    Sign up
-                </button>
             </div>
           </div>
         </div>
